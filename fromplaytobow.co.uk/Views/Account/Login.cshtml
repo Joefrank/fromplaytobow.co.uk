@@ -1,0 +1,24 @@
+﻿@model fromplaytobow.co.uk.Models.HtmlPageVM
+
+@{
+    ViewBag.Title = "Login";
+    const string style = @" style=""display:none"" ";
+}
+
+
+@section pagetitle{
+     @Model.Title
+}
+
+@section pageshortintro{
+    @Model.ShortIntro
+}
+
+@section showcontactform{
+    @Html.Raw(style)
+}
+<div id="nicdark_window">
+
+   @Html.Partial("_Login")
+
+</div>

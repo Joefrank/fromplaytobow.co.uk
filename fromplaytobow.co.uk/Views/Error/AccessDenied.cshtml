@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Access Denied";
+    const string style = @" style=""display:none"" ";
+}
+
+
+@section pagetitle{
+    Access Denied
+}
+
+@section showcontactform{
+    @Html.Raw(style)
+}
+
+<div id="nicdark_window">
+    <h1 class="ui-state-error">@ViewBag.ErrorMessage</h1>
+
+</div>

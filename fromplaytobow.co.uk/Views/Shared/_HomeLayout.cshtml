@@ -1,0 +1,164 @@
+﻿@Html.Partial("_HeadTags")
+
+<body id="start_nicdark_framework">
+
+<div class="nicdark_site">
+    <div class="nicdark_site_fullwidth nicdark_clearfix"><div class="nicdark_overlay"></div>
+
+
+
+<!--START SIDEBAR-->
+
+        @Html.Partial("_Header")
+
+<!--END SIDEBAR--><div class="nicdark_section nicdark_navigation fade-down">
+    
+    <div class="nicdark_menu_boxed">
+
+        <div class="nicdark_section nicdark_bg_greydark nicdark_displaynone_responsive">
+            <div class="nicdark_container nicdark_clearfix">
+               
+                @Html.Partial("_TopHeader")
+
+                <!--info window for languages-->
+                <div id="nicdark_window" class="nicdark_bg_white nicdark_radius zoom-anim-dialog mfp-hide">
+                    
+                    @Html.Partial("_SocialView")
+
+                </div>
+                <!--end window-->
+
+            </div>
+        </div>
+
+        <div class="nicdark_space3 nicdark_bg_gradient"></div>
+                    
+        <div class="nicdark_section nicdark_bg_grey nicdark_shadow nicdark_radius_bottom">
+            <div class="nicdark_container nicdark_clearfix">
+
+                <div class="grid grid_12 percentage">
+                        
+                        <div class="nicdark_space20"></div>
+
+                        <div class="nicdark_logo nicdark_marginleft10">
+                            <a href="index.html"><img alt="" src="/Content/img/logo.png"></a>
+                        </div>
+
+                      <!--  <a class="nicdark_btn_icon nicdark_zoom nicdark_bg_yellow_hover nicdark_right_sidebar_btn_open nicdark_marginright10 nicdark_bg_orange extrasmall nicdark_radius white right"><i class="icon-basket-1"></i></a>
+                      -->  
+                       
+                    @Html.Partial("_TopNav")
+    
+                        <div class="nicdark_space20"></div>
+
+                </div>
+
+            </div>
+            <!--end container-->
+
+        </div>
+        <!--end header-->
+
+    </div>
+
+</div>
+<!--start-->
+<!--start section-->
+<section class="nicdark_section">
+
+	<div class="tp-banner-container">
+		<div class="nicdark_slide1" >
+			
+			<ul>
+				
+				<!--start second-->
+				<li data-transition="fade" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on"  data-title="LESSON">
+					<img src="/Content/img/slide/img3.jpg"  alt="" data-lazyload="/Content/img/slide/img3.jpg" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat">
+				</li>
+				<!--end second-->
+
+				<!--start first-->
+				<li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on"  data-title="FRIENDS">
+					<img src="/Content/img/slide/img1.jpg"  alt="" data-lazyload="/Content/img/slide/img1.jpg" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">	
+				</li>
+				<!--end first-->
+
+			</ul>
+			
+		</div>
+	</div>
+
+</section>
+<!--end section--><!--start section-->
+<section class="nicdark_section nicdark_margintop45_negative">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+		
+		<div class="grid grid_12 percentage nomargin">    
+			<div class="nicdark_textevidence center">
+			    <div class="nicdark_textevidence nicdark_width_percentage25 nicdark_bg_blue nicdark_shadow nicdark_radius_left">
+			        <div class="nicdark_textevidence">
+			            <div class="nicdark_margin30">
+			                <h2 class="white subtitle"><a class="white" href="/Lesson">LESSONS</a></h2>
+			           </div>
+			            <i class="nicdark_zoom icon-pencil-2 nicdark_iconbg left extrabig blue nicdark_displaynone_ipadland nicdark_displaynone_ipadpotr"></i>
+			        </div>
+			    </div>
+			    <div class="nicdark_textevidence nicdark_width_percentage25 nicdark_bg_yellow nicdark_shadow">
+			        <div class="nicdark_textevidence">
+			            <div class="nicdark_margin30">
+			                <h2 class="white subtitle"><a class="white" href="/Lesson/Fees">FEES</a></h2>
+			           </div>
+			            <i class="nicdark_zoom icon-money-1 nicdark_iconbg left extrabig yellow nicdark_displaynone_ipadland nicdark_displaynone_ipadpotr"></i>
+			        </div>
+			    </div>
+			    <div class="nicdark_textevidence nicdark_width_percentage25 nicdark_bg_orange nicdark_shadow">
+			        <div class="nicdark_textevidence">
+			            <div class="nicdark_margin30">
+			                <h2 class="white subtitle"><a class="white" href="/Grade">GRADES</a></h2>
+			           </div>
+			            <i class="nicdark_zoom icon-music-2 nicdark_iconbg left extrabig orange nicdark_displaynone_ipadland nicdark_displaynone_ipadpotr"></i>
+			        </div>
+			    </div>
+			    <div class="nicdark_textevidence nicdark_width_percentage25 nicdark_bg_green nicdark_shadow nicdark_radius_right">
+			        <div class="nicdark_textevidence">
+			            <div class="nicdark_margin30">
+			                <h2 class="white subtitle"><a class="white" href="/About/TheTeacher">TEACHER</a></h2>
+			           </div>
+			            <i class="nicdark_zoom icon-graduation-cap-1 nicdark_iconbg left extrabig green nicdark_displaynone_ipadland nicdark_displaynone_ipadpotr"></i>
+			        </div>
+			    </div>
+			    <div class="nicdark_space5"></div>
+			</div>
+		</div>
+
+	</div>
+    <!--end nicdark_container-->
+     
+</section>
+
+
+ @RenderBody()
+
+
+<!--end section--><!--end-->
+
+<div class="nicdark_space3 nicdark_bg_gradient"></div>
+
+<!--start footer section-->
+@Html.Partial("_Footer")
+
+<!--end section-->        
+
+    </div>
+    </div>
+
+    @Html.Partial("_BottomScripts")
+<!--custom js-->
+<script src="/Scripts/js/Main.js" type="text/javascript"></script>
+<!--custom js-->
+
+
+</body>  
+</html>

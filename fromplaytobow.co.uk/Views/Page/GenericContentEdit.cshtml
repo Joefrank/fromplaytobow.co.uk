@@ -1,0 +1,60 @@
+﻿@model fromplaytobow.co.uk.Models.HtmlPageVM
+
+@using System.Text
+@using System.Web.Mvc;
+@using fromplaytobow.co.uk.Helpers.Custom;
+
+@{
+    ViewBag.Title = Model.Title + " - Edit";
+
+    bool bEditModeOn = (ViewBag.EditMode != null) ? Convert.ToBoolean(ViewBag.EditMode) : false;
+
+    var sModelContent = new StringBuilder();
+    
+    foreach (var block in Model.HtmlBlocks)
+    {
+        sModelContent.Append(block.HtmlText);
+    }
+}
+
+@section pagetitle{
+     @Model.Title
+}
+
+@using (Html.BeginForm("SavePageContent", "Page", FormMethod.Post))
+{
+
+    @Html.TextBoxFor(x => x.ShortIntro, new {@class = "nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle"})
+    
+    <div class="grid grid_8">  
+        <div class="nicdark_space50"></div>
+        <!-- use a frame around editable content -->
+        <!-- create custom editor -->
+        <!-- use popup to edit each item. -->
+        <h3 class="subtitle greydark">
+            @Html.TextBoxFor(x => x.Title, new {@class = "nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle"})
+        </h3>
+        <div class="nicdark_space20"></div>
+    </div>
+
+    <div class="grid grid_8">
+
+        @Html.TextAreaFor(x => x.HtmlBlocks[0].HtmlText)
+  
+    </div>
+
+    <div>
+         <input type="submit" class="btn btn-success" value="Save Page" />
+    </div>
+}
+
+@section lowestscripts{
+     <script src="~/ckeditor/ckeditor.js"></script>
+     <script src="~/ckeditor/adapters/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#HtmlBlocks_0__HtmlText').ckeditor();
+        });
+    </script>
+ }

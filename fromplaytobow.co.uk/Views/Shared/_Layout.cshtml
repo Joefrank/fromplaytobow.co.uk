@@ -1,0 +1,191 @@
+﻿@{
+    
+    var editUrl = Request.Url != null ? Request.Url.AbsoluteUri : "";
+
+    var bEditMode = editUrl.Contains("/Edit");
+
+    var finalUrl = bEditMode ? editUrl : editUrl + "/Edit";
+    
+}
+
+@Html.Partial("_HeadTags")
+
+ 
+<body id="start_nicdark_framework">
+
+<div class="nicdark_site">
+    <div class="nicdark_site_fullwidth nicdark_clearfix"><div class="nicdark_overlay"></div>
+
+
+         @Html.Partial("_Header")
+
+<!--START SIDEBAR-->
+@*<div class="nicdark_right_sidebar nicdark_bg_greydark nicdark_nicescrool">
+
+    <a class="nicdark_right_sidebar_btn_close nicdark_btn_icon small nicdark_bg_red nicdark_radius white nicdark_absolute_right10 nicdark_shadow"><i class="icon-power"></i></a>
+    
+
+
+</div>*@
+<!--END SIDEBAR--><div class="nicdark_section nicdark_navigation fade-down">
+    
+    <div class="nicdark_menu_boxed">
+
+        <div class="nicdark_section nicdark_bg_greydark nicdark_displaynone_responsive">
+            <div class="nicdark_container nicdark_clearfix">
+
+                @Html.Partial("_TopHeader")
+
+                <!--info window for languages-->
+                <div id="nicdark_window" class="nicdark_bg_white nicdark_radius zoom-anim-dialog mfp-hide">
+                    
+                   @Html.Partial("_SocialView")
+
+                </div>
+                <!--end window-->
+
+            </div>
+        </div>
+
+        <div class="nicdark_space3 nicdark_bg_gradient"></div>
+                    
+        <div class="nicdark_section nicdark_bg_grey nicdark_shadow nicdark_radius_bottom">
+            <div class="nicdark_container nicdark_clearfix">
+
+                <div class="grid grid_12 percentage">
+                        
+                        <div class="nicdark_space20"></div>
+
+                        <div class="nicdark_logo nicdark_marginleft10">
+                            <a href="index.html"><img alt="" src="/Content/img/logo.png"></a>
+                        </div>
+
+                        
+                         @Html.Partial("_TopNav")
+    
+                        <div class="nicdark_space20"></div>
+
+                </div>
+
+            </div>
+            <!--end container-->
+
+        </div>
+        <!--end header-->
+
+    </div>
+
+</div>
+<!--start-->
+<!--start section-->
+<section id="nicdark_parallax_title" class="nicdark_section nicdark_imgparallax nicdark_parallaxx_img6">
+
+    <div class="nicdark_filter greydark">
+
+        <!--start nicdark_container-->
+        <div class="nicdark_container nicdark_clearfix">
+
+            <div class="grid grid_12">
+                <div class="nicdark_space100"></div>
+                <div class="nicdark_space100"></div>
+                <h1 class="white subtitle"> @RenderSection("pagetitle", required: false)</h1>
+                <div class="nicdark_space10"></div>
+                <h3 class="subtitle white">@RenderSection("pageshortintro", required: false)</h3>
+                <div class="nicdark_space20"></div>
+                <div class="nicdark_divider left big"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                <div class="nicdark_space40"></div>
+                <div class="nicdark_space50"></div>
+            </div>
+
+        </div>
+        <!--end nicdark_container-->
+
+    </div>
+     
+</section>
+<!--end section-->
+
+
+<!--start section-->
+
+<!--end section-->
+    <section class="nicdark_section">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+        <div class="nicdark_space50"></div>
+         @RenderBody()
+
+        <div class="grid grid_4" @RenderSection("showcontactform", false)>
+
+            <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
+                <div class="nicdark_textevidence nicdark_bg_green nicdark_radius_top">
+                    <h4 class="white nicdark_margin20">SEND NEW QUESTION</h4>
+                    <i class="icon-mail-1 nicdark_iconbg right medium green"></i>
+                </div>
+                <div class="nicdark_margin20">
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text" value="" placeholder="NAME">
+                    <div class="nicdark_space20"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text" value="" placeholder="EMAIL">
+                    <div class="nicdark_space20"></div>
+                    <textarea class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" placeholder="YOUR QUESTION" rows="7"></textarea>
+                    <div class="nicdark_space20"></div>
+                    <!--<input class="nicdark_btn nicdark_bg_red medium nicdark_shadow nicdark_radius white" type="submit" value="SEND">-->
+                    <a href="submit-message.html" class="nicdark_mpopup_ajax nicdark_btn nicdark_bg_green medium nicdark_shadow nicdark_radius white nicdark_press">SEND</a>
+                </div>
+            </div>
+        
+        </div>
+
+
+        <div class="nicdark_space50"></div>
+
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>
+<!--end-->
+
+<div class="nicdark_space3 nicdark_bg_gradient"></div>
+
+<!--start footer section-->
+@Html.Partial("_Footer")
+<!--end section-->
+              
+     <section class="nicdark_section">
+<div style="width:100%;height:50px;background-color:#f87;text-align:center;">
+    @if (!bEditMode)
+    {
+        @:<a href="@(finalUrl)" title="Edit this page">Edit</a> |
+        @:<a href="@(finalUrl)" title="Save">Save</a> |
+    }
+   
+    <a href="#" title="Edit Meta Tags">Meta Tags</a>
+    
+</div>
+</section>  
+
+    </div>
+</div>
+
+
+   @Html.Partial("_BottomScripts")
+
+@RenderSection("lowestscripts", required:false)
+
+<!--custom js-->
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        //START PARALLAX SECTIONS
+        $('#nicdark_parallax_title').parallax("50%", 0.3);
+        //END PARALLAX SECTIONS
+
+    });
+</script>
+<!--custom js-->
+
+</body>  
+</html>

@@ -1,0 +1,20 @@
+﻿@model FPTB.Model.UserDto
+
+@{
+    ViewBag.Title = "User Created Successfully";
+    const string style = @" style=""display:none"" ";
+}
+
+@section pagetitle{
+    User  Created Successfully
+ }
+
+@section showcontactform{
+    @Html.Raw(style)
+}
+
+<div id="nicdark_window">
+    <h1 class="ui-state-error">
+         User <b>@Model.FirstName @Model.SurName</b>  Created Successfully
+    </h1>
+</div>

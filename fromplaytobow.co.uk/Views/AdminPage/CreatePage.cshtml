@@ -1,0 +1,89 @@
+﻿@model fromplaytobow.co.uk.Models.HtmlPageVM
+
+@{
+    ViewBag.Title = "Create Page";
+}
+
+<section class="nicdark_section">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+
+        <div class="nicdark_space50"></div>
+
+
+        <div class="grid grid_12">
+            <h1 class="subtitle greydark">IMPORTANT INFORMATION</h1>
+            <div class="nicdark_space20"></div>
+            <h3 class="subtitle grey">READ ON</h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider left big"><span class="nicdark_bg_yellow nicdark_radius"></span></div>
+            <div class="nicdark_space10"></div>
+        </div>
+
+         <div class="grid grid_4 nicdark_relative">
+
+            <div class="nicdark_btn_iconbg nicdark_bg_yellow nicdark_absolute extrabig nicdark_shadow nicdark_radius">
+                <div>
+                    <i class="icon-leaf-1 nicdark_iconbg left big white"></i> 
+                </div>
+            </div>
+            
+            <div class="nicdark_activity nicdark_marginleft100">
+                <h4>FOR PUPILS</h4>                        
+                <div class="nicdark_space20"></div>
+                <p>Lorem ipsum dolor sit amet, consec adipiscing elit. Pellentesque tincidunt rutrum sapien, sed ultricies diam.</p>
+                <div class="nicdark_space20"></div>
+                <a href="/About/pupils" class="nicdark_btn grey"><i class="icon-right-open-outline"></i> More</a>
+                <div class="nicdark_space20"></div>
+            </div>
+        
+        </div>
+
+       
+
+<h2>Create Page</h2>
+
+@using (Html.BeginForm("CreatePage", "AdminPage", FormMethod.Post, new { id = "frmPageAdd", name = "frmPageAdd" }))
+{
+    <table>
+    <tr>
+        <td></td>
+        <td> @Html.ValidationSummary()</td>
+        <td></td>
+    </tr>  
+       
+                <tr>
+                    <td>Title</td>
+                    <td>@Html.TextBoxFor(x => x.Title)</td>
+                </tr>
+                <tr>
+                    <td>Short Intro</td>
+                    <td>@Html.TextBoxFor(x => x.ShortIntro)</td>
+                </tr>
+                <tr>
+                    <td>Page Identifier</td>
+                    <td>@Html.TextBoxFor(x => x.PageIdentifier)</td>
+                </tr>
+                <tr>
+                    <td>Text Block</td>
+                    <td>@Html.TextAreaFor(x => x.HtmlBlocks[0].HtmlText)</td>
+                </tr>
+     
+    <tr>
+        <td colspan="3">           
+            <input type="submit" class="btn btn-success" value="Send Request" />
+        </td>
+        
+    </tr>
+</table>
+
+}
+
+         <div class="nicdark_space50"></div>
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>

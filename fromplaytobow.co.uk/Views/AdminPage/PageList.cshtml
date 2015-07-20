@@ -1,0 +1,12 @@
+﻿@model IEnumerable<FPTB.Model.HtmlPageDto>
+
+@{
+    ViewBag.Title = "PageList";
+}
+
+<h2>Pages List</h2>
+
+@foreach (var page in Model)
+{
+    @page.Title
+}

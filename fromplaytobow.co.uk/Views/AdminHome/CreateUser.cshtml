@@ -1,0 +1,36 @@
+﻿@model fromplaytobow.co.uk.Models.NewUserVM
+
+@{
+    ViewBag.Title = "Create User";
+}
+
+@section pagetitle{
+     "Create User"
+}
+
+@section pageshortintro{
+    "Please fill form below to create user"
+}
+
+ <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
+@using (Html.BeginForm("CreateUser", "AdminHome", FormMethod.Post, new { id = "frmUserAdd", name = "frmUserAdd" }))
+{
+    @Html.ValidationSummary()
+
+     <div class="nicdark_textevidence nicdark_bg_yellow nicdark_radius_top">
+            <h4 class="white nicdark_margin20">USER REGISTRATION</h4>
+        </div>
+    <div class="nicdark_margin20">
+        @Html.HiddenFor(x => x.UserId)
+        @Html.TextBoxFor(x => x.FirstName, new { @class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle",  @placeholder="Firstname"})
+        <div class="nicdark_space20"></div>
+        @Html.TextBoxFor(x => x.SurName, new { @class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle",   @placeholder="Surname"})
+         
+            <div class="nicdark_space20"></div>
+            <input class="nicdark_btn nicdark_bg_yellow medium nicdark_shadow nicdark_radius white" type="submit" value="Save">
+        </div>
+    
+   
+}
+
+</div>

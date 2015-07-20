@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fromplaytobow.co.uk", "fromplaytobow.co.uk\fromplaytobow.co.uk.csproj", "{E1305685-F5E5-460A-BAD3-908DC3047BCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{13C49DC6-FB4D-4399-9AE1-483D5604A3CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPTB.Data", "FPTB.Data\FPTB.Data.csproj", "{71AF2DD5-5964-4783-ABFA-F85D4E7CCEA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPTB.Services", "FPTB.Services\FPTB.Services.csproj", "{7DE2B91C-7C8A-49B9-BE6B-26656B551435}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPTB.Model", "FPTB.Model\FPTB.Model.csproj", "{943544F6-A422-4F44-92C0-B7DA5F3E4C30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AliceLaptop|Any CPU = AliceLaptop|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		HomeDesktop|Any CPU = HomeDesktop|Any CPU
+		IMPC1003Office|Any CPU = IMPC1003Office|Any CPU
+		JoesLaptop|Any CPU = JoesLaptop|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1305685-F5E5-460A-BAD3-908DC3047BCE}.AliceLaptop|Any CPU.ActiveCfg = Release|Any CPU
+		{E1305685-F5E5-460A-BAD3-908DC3047BCE}.AliceLaptop|Any CPU.Build.0 = Release|Any CPU
+		{E1305685-F5E5-460A-BAD3-908DC3047BCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1305685-F5E5-460A-BAD3-908DC3047BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1305685-F5E5-460A-BAD3-908DC3047BCE}.HomeDesktop|Any CPU.ActiveCfg = Release|Any CPU
+		{E1305685-F5E5-460A-BAD3-908DC3047BCE}.HomeDesktop|Any CPU.Build.0 = Release|Any CPU
+		{E1305685-F5E5-460A-BAD3-908DC3047BCE}.IMPC1003Office|Any CPU.ActiveCfg = Release|Any CPU
+		{E1305685-F5E5-460A-BAD3-908DC3047BCE}.IMPC1003Office|Any CPU.Build.0 = Release|Any CPU
+		{E1305685-F5E5-460A-BAD3-908DC3047BCE}.JoesLaptop|Any CPU.ActiveCfg = Release|Any CPU
+		{E1305685-F5E5-460A-BAD3-908DC3047BCE}.JoesLaptop|Any CPU.Build.0 = Release|Any CPU
+		{E1305685-F5E5-460A-BAD3-908DC3047BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1305685-F5E5-460A-BAD3-908DC3047BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13C49DC6-FB4D-4399-9AE1-483D5604A3CA}.AliceLaptop|Any CPU.ActiveCfg = Release|Any CPU
+		{13C49DC6-FB4D-4399-9AE1-483D5604A3CA}.AliceLaptop|Any CPU.Build.0 = Release|Any CPU
+		{13C49DC6-FB4D-4399-9AE1-483D5604A3CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13C49DC6-FB4D-4399-9AE1-483D5604A3CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13C49DC6-FB4D-4399-9AE1-483D5604A3CA}.HomeDesktop|Any CPU.ActiveCfg = Release|Any CPU
+		{13C49DC6-FB4D-4399-9AE1-483D5604A3CA}.HomeDesktop|Any CPU.Build.0 = Release|Any CPU
+		{13C49DC6-FB4D-4399-9AE1-483D5604A3CA}.IMPC1003Office|Any CPU.ActiveCfg = Release|Any CPU
+		{13C49DC6-FB4D-4399-9AE1-483D5604A3CA}.IMPC1003Office|Any CPU.Build.0 = Release|Any CPU
+		{13C49DC6-FB4D-4399-9AE1-483D5604A3CA}.JoesLaptop|Any CPU.ActiveCfg = Release|Any CPU
+		{13C49DC6-FB4D-4399-9AE1-483D5604A3CA}.JoesLaptop|Any CPU.Build.0 = Release|Any CPU
+		{13C49DC6-FB4D-4399-9AE1-483D5604A3CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13C49DC6-FB4D-4399-9AE1-483D5604A3CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71AF2DD5-5964-4783-ABFA-F85D4E7CCEA4}.AliceLaptop|Any CPU.ActiveCfg = Release|Any CPU
+		{71AF2DD5-5964-4783-ABFA-F85D4E7CCEA4}.AliceLaptop|Any CPU.Build.0 = Release|Any CPU
+		{71AF2DD5-5964-4783-ABFA-F85D4E7CCEA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71AF2DD5-5964-4783-ABFA-F85D4E7CCEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71AF2DD5-5964-4783-ABFA-F85D4E7CCEA4}.HomeDesktop|Any CPU.ActiveCfg = Release|Any CPU
+		{71AF2DD5-5964-4783-ABFA-F85D4E7CCEA4}.HomeDesktop|Any CPU.Build.0 = Release|Any CPU
+		{71AF2DD5-5964-4783-ABFA-F85D4E7CCEA4}.IMPC1003Office|Any CPU.ActiveCfg = Release|Any CPU
+		{71AF2DD5-5964-4783-ABFA-F85D4E7CCEA4}.IMPC1003Office|Any CPU.Build.0 = Release|Any CPU
+		{71AF2DD5-5964-4783-ABFA-F85D4E7CCEA4}.JoesLaptop|Any CPU.ActiveCfg = Release|Any CPU
+		{71AF2DD5-5964-4783-ABFA-F85D4E7CCEA4}.JoesLaptop|Any CPU.Build.0 = Release|Any CPU
+		{71AF2DD5-5964-4783-ABFA-F85D4E7CCEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71AF2DD5-5964-4783-ABFA-F85D4E7CCEA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DE2B91C-7C8A-49B9-BE6B-26656B551435}.AliceLaptop|Any CPU.ActiveCfg = Release|Any CPU
+		{7DE2B91C-7C8A-49B9-BE6B-26656B551435}.AliceLaptop|Any CPU.Build.0 = Release|Any CPU
+		{7DE2B91C-7C8A-49B9-BE6B-26656B551435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DE2B91C-7C8A-49B9-BE6B-26656B551435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DE2B91C-7C8A-49B9-BE6B-26656B551435}.HomeDesktop|Any CPU.ActiveCfg = Release|Any CPU
+		{7DE2B91C-7C8A-49B9-BE6B-26656B551435}.HomeDesktop|Any CPU.Build.0 = Release|Any CPU
+		{7DE2B91C-7C8A-49B9-BE6B-26656B551435}.IMPC1003Office|Any CPU.ActiveCfg = Release|Any CPU
+		{7DE2B91C-7C8A-49B9-BE6B-26656B551435}.IMPC1003Office|Any CPU.Build.0 = Release|Any CPU
+		{7DE2B91C-7C8A-49B9-BE6B-26656B551435}.JoesLaptop|Any CPU.ActiveCfg = Release|Any CPU
+		{7DE2B91C-7C8A-49B9-BE6B-26656B551435}.JoesLaptop|Any CPU.Build.0 = Release|Any CPU
+		{7DE2B91C-7C8A-49B9-BE6B-26656B551435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DE2B91C-7C8A-49B9-BE6B-26656B551435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{943544F6-A422-4F44-92C0-B7DA5F3E4C30}.AliceLaptop|Any CPU.ActiveCfg = Release|Any CPU
+		{943544F6-A422-4F44-92C0-B7DA5F3E4C30}.AliceLaptop|Any CPU.Build.0 = Release|Any CPU
+		{943544F6-A422-4F44-92C0-B7DA5F3E4C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{943544F6-A422-4F44-92C0-B7DA5F3E4C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{943544F6-A422-4F44-92C0-B7DA5F3E4C30}.HomeDesktop|Any CPU.ActiveCfg = Release|Any CPU
+		{943544F6-A422-4F44-92C0-B7DA5F3E4C30}.HomeDesktop|Any CPU.Build.0 = Release|Any CPU
+		{943544F6-A422-4F44-92C0-B7DA5F3E4C30}.IMPC1003Office|Any CPU.ActiveCfg = Release|Any CPU
+		{943544F6-A422-4F44-92C0-B7DA5F3E4C30}.IMPC1003Office|Any CPU.Build.0 = Release|Any CPU
+		{943544F6-A422-4F44-92C0-B7DA5F3E4C30}.JoesLaptop|Any CPU.ActiveCfg = Release|Any CPU
+		{943544F6-A422-4F44-92C0-B7DA5F3E4C30}.JoesLaptop|Any CPU.Build.0 = Release|Any CPU
+		{943544F6-A422-4F44-92C0-B7DA5F3E4C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{943544F6-A422-4F44-92C0-B7DA5F3E4C30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

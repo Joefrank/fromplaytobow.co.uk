@@ -1,0 +1,39 @@
+﻿@model FPTB.Model.HtmlPageDto
+
+@using System.Text
+@using System.Web.Mvc;
+@using fromplaytobow.co.uk.Helpers.Custom;
+
+@{
+    ViewBag.Title = Model.Title;
+    
+    var sModelContent = new StringBuilder();
+    
+    foreach (var block in Model.HtmlBlocks)
+    {
+        sModelContent.Append(block.HtmlText);
+    }
+   
+}
+
+
+@section pagetitle{
+     @Model.Title
+}
+
+@section pageshortintro{
+    @Model.ShortIntro
+}
+
+        <div class="grid grid_8">           
+        
+            <div class="nicdark_space50"></div>
+            <h3 class="subtitle greydark">@Model.Title</h3>
+            <div class="nicdark_space20"></div>
+            
+        </div>
+
+<div class="grid grid_8">
+    @sModelContent.ToString()
+</div>
+

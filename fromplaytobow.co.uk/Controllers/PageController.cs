@@ -30,7 +30,7 @@ namespace fromplaytobow.co.uk.Controllers
             return View();
         }
 
-        public ActionResult GetGradeContent(string idname)
+        public ActionResult GetPageContent(string idname)
         {
             ViewBag.EditMode = false;
             return View("GenericContent", CreateDefaultPage(_pageService.GetPage(idname)));
@@ -38,14 +38,12 @@ namespace fromplaytobow.co.uk.Controllers
 
         [CustomAuth(Roles.CompanyAdmin, AccessDeniedMessage="You are not authorized to edit this page")]
         [HttpGet]
-        public ActionResult EditGradeContent(string idname)
+        public ActionResult EditPageContent(string idname)
         {
             ViewBag.EditMode = true;
             var page = CreateDefaultPage(_pageService.GetPage(idname));
             var pageVm = Mapper.Map<HtmlPageDto, HtmlPageVM>(page);
             pageVm.PageIdentifier = idname;
-            //pageVm.PageGroup = RouteData.DataTokens["RouteName"].ToString();
-
             return View("GenericContentEdit", pageVm);
         }
 
@@ -55,6 +53,7 @@ namespace fromplaytobow.co.uk.Controllers
         {
             return !ModelState.IsValid ? RedirectToAction("EditGradeContent", new {idname = page.PageIdentifier}) : null;
         }
+
 
         private HtmlPageDto CreateDefaultPage(HtmlPageDto page)
         {

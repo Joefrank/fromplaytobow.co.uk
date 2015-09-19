@@ -41,17 +41,32 @@ namespace fromplaytobow.co.uk.Controllers
         public ActionResult EditPageContent(string idname)
         {
             ViewBag.EditMode = true;
+
+            var routename = RouteData.DataTokens["RouteName"];
+
             var page = CreateDefaultPage(_pageService.GetPage(idname));
             var pageVm = Mapper.Map<HtmlPageDto, HtmlPageVM>(page);
-            pageVm.PageIdentifier = idname;
+            pageVm.PageIdentifier = routename.ToString();
+            pageVm.PageGroup = routename.ToString().Replace("Edit", "");
+            
             return View("GenericContentEdit", pageVm);
         }
 
         [CustomAuth(Roles.CompanyAdmin, AccessDeniedMessage = "You are not authorized to modify this page")]
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult SavePageContent(HtmlPageVM page)
         {
-            return !ModelState.IsValid ? RedirectToAction("EditGradeContent", new {idname = page.PageIdentifier}) : null;
+            if (!ModelState.IsValid)
+            {
+                return View("GenericContentEdit", page);
+            }
+            var pagedto = Mapper.Map<HtmlPageVM, HtmlPageDto>(page);
+            var pageid = _pageService.SavePage(pagedto);
+            page.PageId = pageid;
+            page.IsSavedSuccess = true;
+
+            return View("GenericContentEdit", page);
         }
 
 
@@ -69,6 +84,16 @@ namespace fromplaytobow.co.uk.Controllers
             if (string.IsNullOrEmpty(page.ShortIntro))
             {
                 page.ShortIntro = "Page Intro";
+            }
+
+            if (string.IsNullOrEmpty(page.MetaDescription))
+            {
+                page.MetaDescription = "Meta description";
+            }
+
+            if (string.IsNullOrEmpty(page.MetaKeyword))
+            {
+                page.MetaKeyword = "Meta keywords";
             }
 
             if (page.HtmlBlocks == null || page.HtmlBlocks.Count == 0)

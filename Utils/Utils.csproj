@@ -68,6 +68,7 @@
     <Compile Include="CustomViewEngine.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouteCollectionExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

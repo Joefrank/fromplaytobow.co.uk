@@ -19,6 +19,7 @@ namespace fromplaytobow.co.uk.App_Start
     using System.Data.Common;
     using Authentication.Infrastructure;
     using Authentication.Implementation;
+    using System.Configuration;
 
     public static class NinjectWebCommon 
     {
@@ -70,13 +71,22 @@ namespace fromplaytobow.co.uk.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            var cookieDomain = (ConfigurationManager.AppSettings["CookieDomain"] != null)? 
+                ConfigurationManager.AppSettings["CookieDomain"].ToString() : "";
+
+            var cookiePrefix = (ConfigurationManager.AppSettings["CookiePrefix"] != null) ?
+                ConfigurationManager.AppSettings["CookiePrefix"].ToString() : "";
+
             kernel.Bind<IUserRepository>().To<UserRepository>();
             kernel.Bind<IUserService>().To<UserService>();
             kernel.Bind<IPageRepository>().To<PageRepository>();
             kernel.Bind<IHtmlPageService>().To<HtmlPageService>();
             kernel.Bind<DbContext>().To<FPTBContext>();
             kernel.Bind<DbConnection>().To<DbConnection>();
-            kernel.Bind<IOAuthService>().To<OckAuthService>();
+
+            kernel.Bind<IOAuthService>().To<OckAuthService>()
+                .WithConstructorArgument("cookieDomain", cookieDomain)
+                .WithConstructorArgument("cookiePrefix", cookiePrefix);
         }        
     }
 }

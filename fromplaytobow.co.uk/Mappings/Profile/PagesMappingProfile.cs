@@ -20,6 +20,9 @@ namespace FPTB.Mappings.Profile
             CreateMap<HtmlBlockDto, HtmlBlock>();
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
+
+            CreateMap<HtmlPageVM, HtmlPageDto>();
+            CreateMap<HtmlBlockVM, HtmlBlockDto>();
         }
     }
 }

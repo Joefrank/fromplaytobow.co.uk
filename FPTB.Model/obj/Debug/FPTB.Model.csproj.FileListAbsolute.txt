@@ -7,3 +7,8 @@ G:\fromplaytobow.co.uk\FPTB.Model\bin\Debug\FPTB.Model.pdb
 G:\fromplaytobow.co.uk\FPTB.Model\obj\Debug\FPTB.Model.dll
 G:\fromplaytobow.co.uk\FPTB.Model\obj\Debug\FPTB.Model.pdb
 G:\fromplaytobow.co.uk\FPTB.Model\obj\Debug\FPTB.Model.csprojResolveAssemblyReference.cache
+C:\Projects\Github.Projects\fromplaytobow.co.uk\FPTB.Model\bin\Debug\FPTB.Model.dll
+C:\Projects\Github.Projects\fromplaytobow.co.uk\FPTB.Model\bin\Debug\FPTB.Model.pdb
+C:\Projects\Github.Projects\fromplaytobow.co.uk\FPTB.Model\obj\Debug\FPTB.Model.dll
+C:\Projects\Github.Projects\fromplaytobow.co.uk\FPTB.Model\obj\Debug\FPTB.Model.pdb
+C:\Projects\Github.Projects\fromplaytobow.co.uk\FPTB.Model\obj\Debug\FPTB.Model.csprojResolveAssemblyReference.cache

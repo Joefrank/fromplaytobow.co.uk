@@ -17,12 +17,13 @@ namespace FPTB.Mappings.Profile
             CreateMap<HtmlPageDto, HtmlPage>();
             CreateMap<HtmlPageDto, HtmlPageVM>();
             CreateMap<HtmlBlockDto, HtmlBlockVM>();
+            CreateMap<HtmlPageVM, HtmlPageDto>();
+
             CreateMap<HtmlBlockDto, HtmlBlock>();
+            CreateMap<HtmlBlockVM, HtmlBlockDto>();
+
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
-
-            CreateMap<HtmlPageVM, HtmlPageDto>();
-            CreateMap<HtmlBlockVM, HtmlBlockDto>();
         }
     }
 }

@@ -16,5 +16,7 @@ namespace FPTB.Services.Infrastructure
         HtmlPageDto GetPage(int id);
 
         int SavePage(HtmlPageDto page);
+
+        string GetPageGroupFromUrl(string rawUrl);
     }
 }

@@ -41,6 +41,11 @@ namespace fromplaytobow.co.uk.Controllers
             return View();
         }
 
+        public ActionResult Register()
+        {
+            return View();
+        }
+
         public ActionResult Login()
         {
             ViewBag.ReferringUrl = (Request.UrlReferrer != null)? Request.UrlReferrer.AbsoluteUri : "/";

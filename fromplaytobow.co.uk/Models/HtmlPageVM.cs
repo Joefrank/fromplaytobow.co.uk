@@ -23,12 +23,8 @@ namespace fromplaytobow.co.uk.Models
         [Required(ErrorMessage = "Page group is required")]
         public string PageGroup { get; set; }
 
-        public string MetaKeyword { get; set; }
-
-        public string MetaDescription{get;set;}
-
-        public bool IsSavedSuccess { get; set; }
-
         public List<HtmlBlockVM> HtmlBlocks { get; set; }
+
+        public int Status { get; set; }
     }
 }

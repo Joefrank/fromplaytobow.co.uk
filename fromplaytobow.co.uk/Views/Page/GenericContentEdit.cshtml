@@ -20,46 +20,37 @@
 @section pagetitle{
      @Model.Title
 }
-
 @section showcontactform{
-    @Html.Raw(@" style=""display:none"" ");
+    @Html.Raw(@" style=""display:none"" ")
 }
-
 @using (Html.BeginForm("SavePageContent", "Page", FormMethod.Post))
 {
+    @Html.HiddenFor(x => x.PageIdentifier)
 
-    
-    <div class="grid grid_8"> 
-         @Html.HiddenFor(x => x.PageIdentifier)
-        @Html.HiddenFor(x => x.PageGroup)
-        @Html.HiddenFor(x => x.PageId)
-        @Html.HiddenFor(x => x.ThemeId)
+    @Html.HiddenFor(x => x.PageGroup)
 
-        <h3 class="subtitle greydark">
-            @Html.TextBoxFor(x => x.Title, new { @class = "nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" })
-        </h3>
-         
+    @Html.TextBoxFor(x => x.ShortIntro, new {@class = "nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle"})
+
+    @Html.ValidationSummary()
+
+    <div class="grid grid_8">  
         <div class="nicdark_space50"></div>
-
-        @Html.TextBoxFor(x => x.ShortIntro, new { @class = "nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" })
-           
+        <!-- use a frame around editable content -->
+        <!-- create custom editor -->
+        <!-- use popup to edit each item. -->
+        <h3 class="subtitle greydark">
+            @Html.TextBoxFor(x => x.Title, new {@class = "nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle"})
+        </h3>
         <div class="nicdark_space20"></div>
-
-        @Html.TextBoxFor(x => x.MetaKeyword, new { @class = "nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" })
-       
-         <div class="nicdark_space20"></div>
-
-        @Html.TextBoxFor(x => x.MetaDescription, new { @class = "nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" })
-       
     </div>
 
     <div class="grid grid_8">
 
-        @Html.TextAreaFor(x => x.HtmlBlocks[0].HtmlText, new { style="height:500px;" })
+        @Html.TextAreaFor(x => x.HtmlBlocks[0].HtmlText)
   
     </div>
 
-    <div  class="grid grid_8">
+    <div>
          <input type="submit" class="btn btn-success" value="Save Page" />
     </div>
 }

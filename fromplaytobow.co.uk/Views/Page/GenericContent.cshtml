@@ -18,22 +18,22 @@
 
 
 @section pagetitle{
-     @Model.Title
+     @Html.Raw(Model.Title)
 }
 
 @section pageshortintro{
-    @Model.ShortIntro
+    @Html.Raw(Model.ShortIntro)
 }
 
         <div class="grid grid_8">           
         
             <div class="nicdark_space50"></div>
-            <h3 class="subtitle greydark">@Model.Title</h3>
+            <h3 class="subtitle greydark">@Html.Raw(Model.Title)</h3>
             <div class="nicdark_space20"></div>
             
         </div>
 
 <div class="grid grid_8">
-    @sModelContent.ToString()
+    @Html.Raw(sModelContent.ToString())
 </div>
 

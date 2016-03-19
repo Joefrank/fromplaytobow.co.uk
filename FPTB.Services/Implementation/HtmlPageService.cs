@@ -52,5 +52,16 @@ namespace FPTB.Services.Implementation
 
             return _pagerepos.Save();
         }
+
+        public string GetPageGroupFromUrl(string rawUrl)
+        {
+            if (string.IsNullOrEmpty(rawUrl))
+                return string.Empty;
+
+            var tempUrl = rawUrl.Trim();
+            return rawUrl.StartsWith("/") ? 
+                rawUrl.Substring(1, rawUrl.TrimStart('/').IndexOf("/")) : 
+                rawUrl.Substring(0, rawUrl.IndexOf("/"));
+        }
     }
 }

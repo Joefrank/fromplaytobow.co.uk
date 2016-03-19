@@ -30,25 +30,32 @@ namespace fromplaytobow.co.uk.Controllers
             return View();
         }
 
-        public ActionResult GetPageContent(string idname)
+        #region newscontent
+
+        //public ActionResult GetNewsContent(string pagename = null)
+        //{
+        //    var page = string.IsNullOrEmpty(pagename) ? "index" : pagename;
+        //    return GetPageContent(pagename);
+        //}
+
+        #endregion
+
+        public ActionResult GetPageContent(string pagename)
         {
             ViewBag.EditMode = false;
-            return View("GenericContent", CreateDefaultPage(_pageService.GetPage(idname)));
+            return View("GenericContent", CreateDefaultPage(_pageService.GetPage(pagename)));
         }
 
         [CustomAuth(Roles.CompanyAdmin, AccessDeniedMessage="You are not authorized to edit this page")]
         [HttpGet]
-        public ActionResult EditPageContent(string idname)
+        public ActionResult EditPageContent(string pagename)
         {
             ViewBag.EditMode = true;
-
-            var routename = RouteData.DataTokens["RouteName"];
-
-            var page = CreateDefaultPage(_pageService.GetPage(idname));
+            var page = CreateDefaultPage(_pageService.GetPage(pagename));
             var pageVm = Mapper.Map<HtmlPageDto, HtmlPageVM>(page);
-            pageVm.PageIdentifier = routename.ToString();
-            pageVm.PageGroup = routename.ToString().Replace("Edit", "");
-            
+            pageVm.PageIdentifier = pagename;
+            pageVm.PageGroup = _pageService.GetPageGroupFromUrl(Request.RawUrl);
+
             return View("GenericContentEdit", pageVm);
         }
 
@@ -57,18 +64,16 @@ namespace fromplaytobow.co.uk.Controllers
         [ValidateInput(false)]
         public ActionResult SavePageContent(HtmlPageVM page)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("GenericContentEdit", page);
-            }
-            var pagedto = Mapper.Map<HtmlPageVM, HtmlPageDto>(page);
-            var pageid = _pageService.SavePage(pagedto);
-            page.PageId = pageid;
-            page.IsSavedSuccess = true;
+            page.Status = 0;
 
+            if (ModelState.IsValid)
+            {
+                var pageDto = Mapper.Map<HtmlPageVM, HtmlPageDto>(page);
+                page.Status = _pageService.SavePage(pageDto);                                
+            }
+             
             return View("GenericContentEdit", page);
         }
-
 
         private HtmlPageDto CreateDefaultPage(HtmlPageDto page)
         {
@@ -84,16 +89,6 @@ namespace fromplaytobow.co.uk.Controllers
             if (string.IsNullOrEmpty(page.ShortIntro))
             {
                 page.ShortIntro = "Page Intro";
-            }
-
-            if (string.IsNullOrEmpty(page.MetaDescription))
-            {
-                page.MetaDescription = "Meta description";
-            }
-
-            if (string.IsNullOrEmpty(page.MetaKeyword))
-            {
-                page.MetaKeyword = "Meta keywords";
             }
 
             if (page.HtmlBlocks == null || page.HtmlBlocks.Count == 0)

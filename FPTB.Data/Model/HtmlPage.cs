@@ -17,8 +17,6 @@ namespace FPTB.Data.Model
         public string Title { get; set; }
         public string ShortIntro { get; set; }
         public string PageGroup { get; set; }
-        public string MetaKeyword { get; set; }
-        public string MetaDescription { get; set; }
 
         public virtual List<HtmlBlock> HtmlBlocks{get; set;}
     }

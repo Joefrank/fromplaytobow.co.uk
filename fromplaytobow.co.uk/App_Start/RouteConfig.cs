@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Utils;
 
 namespace fromplaytobow.co.uk
 {
@@ -13,83 +12,72 @@ namespace fromplaytobow.co.uk
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-         
-            routes.MapRouteWithName(
-              "AboutEdit",
-              "About/{idname}/Edit",
-              new { controller = "Page", action = "EditPageContent", idname = UrlParameter.Optional },
-              null
-            );
 
-            routes.MapRouteWithName(
-               "LessonEdit",
-                "Lesson/{idname}/Edit",
-               new { controller = "Page", action = "EditPageContent", idname = UrlParameter.Optional },
-               null
+            routes.MapRoute(
+               name: "GradesEdit",
+               url: "Grade/{idname}/Edit",
+               defaults: new { controller = "Page", action = "EditPageContent", pagename = UrlParameter.Optional }
            );
 
-            routes.MapRouteWithName(
-                  "GradesEdit",
-                   "Grade/{idname}/Edit",
-                   new { controller = "Page", action = "EditPageContent", idname = UrlParameter.Optional },
-                    null
-              );
-
-            routes.MapRouteWithName(
-               "ContactEdit",
-                "Contact/Edit",
-                new { controller = "Page", action = "EditPageContent", idname = "contact" },
-               null
+            routes.MapRoute(
+               name: "Grades",
+               url: "Grade/{idname}",
+               defaults: new { controller = "Page", action = "GetPageContent", pagename = UrlParameter.Optional }
            );
 
-            routes.MapRouteWithName(
-                  "NewsEdit",
-                   "News/{idname}",
-                   new { controller = "Page", action = "GetPageContent", idname = UrlParameter.Optional },
-               null
-              );
-
-            routes.MapRouteWithName(
-                "News",
-                 "News/{idname}/Edit",
-                 new { controller = "Page", action = "EditPageContent", idname = UrlParameter.Optional },
-               null
-            );
-
-
-            routes.MapRouteWithName(
-              "Contact",
-               "Contact",
-               new { controller = "Page", action = "GetPageContent", idname = "contact" },
-               null
+            routes.MapRoute(
+              name: "News",
+              url: "News/{pagename}",
+              defaults: new { controller = "Page", action = "GetNewsContent", pagename= UrlParameter.Optional }
           );
 
-            routes.MapRouteWithName(
-                 "About",
-                  "About/{idname}",
-                  new { controller = "Page", action = "GetPageContent", idname = "contact" },
-               null
+            routes.MapRoute(
+              name: "NewsEdit",
+              url: "News/{pagename}/Edit",
+              defaults: new { controller = "Page", action = "EditPageContent", pagename = UrlParameter.Optional }
+            );
+
+           routes.MapRoute(
+             name: "AboutUs",
+             url: "About/{pagename}",
+             defaults: new { controller = "Page", action = "GetPageContent", pagename = UrlParameter.Optional }
+         );
+
+            routes.MapRoute(
+            name: "AboutUsEdit",
+            url: "About/{pagename}/Edit",
+            defaults: new { controller = "Page", action = "EditPageContent", pagename = UrlParameter.Optional }
+        );
+
+            routes.MapRoute(
+            name: "Musicianship",
+            url: "Musicianship/{pagename}",
+            defaults: new { controller = "Page", action = "GetPageContent", pagename = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
+              name: "MusicianshipEdit",
+              url: "Musicianship/{pagename}/Edit",
+              defaults: new { controller = "Page", action = "EditPageContent", pagename = UrlParameter.Optional }
              );
 
-            routes.MapRouteWithName(
-              "Lesson",
-               "Lesson/{idname}",
-               new { controller = "Page", action = "GetPageContent", idname = UrlParameter.Optional },
-               null
-          );
-                       
-            routes.MapRouteWithName(
-               "Grades",
-                "Grade/{idname}",
-                new { controller = "Page", action = "GetPageContent", idname = UrlParameter.Optional },
-               null
-           );
+            routes.MapRoute(
+              name: "Piano",
+              url: "Piano/{pagename}",
+              defaults: new { controller = "Page", action = "GetPageContent", pagename = UrlParameter.Optional }
+             );
 
-            routes.MapRouteWithName(
-                "Default",
-                 "{controller}/{action}/{id}",
-                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-               null
+            routes.MapRoute(
+             name: "PianoEdit",
+             url: "Piano/{pagename}/Edit",
+             defaults: new { controller = "Page", action = "EditPageContent", pagename = UrlParameter.Optional }
+            );
+          
+
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

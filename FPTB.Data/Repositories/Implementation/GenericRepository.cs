@@ -1,88 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 using System.Data.Entity;
-using FPTB.Data.Repositories.Infrastructure;
 using System.Linq.Expressions;
+using FPTB.Data.Repositories.Infrastructure;
 
-namespace FPTB.Data.Repositories.Implementation
-{
-    public abstract class GenericRepository<T> :
-    IGenericRepository<T>
-        where T : class        
+namespace bigbus.checkout.data.Repositories.Implementation
+{    
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-
-        private DbContext _entities;
-        private IDbSet<T> _dbset;
-
-        protected DbContext Context
-        {
-            get { return _entities; }
-            set { _entities = value; }
-        }
-
-        protected IDbSet<T> DBSet
-        {
-            get { return _dbset; }
-            set { _dbset = value; }
-        }
+        internal DbContext Context;
+        internal DbSet<T> DbSet;
 
         public GenericRepository(DbContext context)
         {
-            _entities = context;
-            _dbset = context.Set<T>();
-        }
-
-        public virtual IEnumerable<T> GetAll()
-        {
-            IEnumerable<T> query = _dbset.AsEnumerable<T>();
-            return query;
+            Context = context;
+            DbSet = context.Set<T>();
         }
 
         public IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
-            IEnumerable<T> query = _dbset.Where(predicate);
+            IEnumerable<T> query = Context.Set<T>().Where(predicate);
             return query;
         }
 
-        public T Get(Expression<Func<T, bool>> predicate)
+        public virtual T FindFirst(Expression<Func<T, bool>> predicate)
         {
-            var result = _dbset.Where(predicate);
-            if (result.Any())
+            IEnumerable<T> query = Context.Set<T>().Where(predicate);
+            return query.FirstOrDefault();
+        }
+
+        public virtual IEnumerable<T> Get(
+            Expression<Func<T, bool>> filter = null,
+            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+            string includeProperties = "")
+        {
+            IQueryable<T> query = DbSet;
+
+            if (filter != null)
             {
-                T query = result.FirstOrDefault();
-                return query;
+                query = query.Where(filter);
             }
-            return null;
+
+            query = includeProperties.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries).
+                Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
+
+            return orderBy != null ? orderBy(query).ToList() : query.ToList();
         }
 
-        public virtual void Add(T entity)
+        public virtual T GetById(object id)
         {
-            _dbset.Add(entity);
+            return DbSet.Find(id);
         }
 
-        public virtual void Delete(T entity)
+        public virtual void Insert(T entity)
         {
-            _dbset.Remove(entity);
+            DbSet.Add(entity);
         }
 
-        public virtual void Edit(T entity)
+        public virtual void Delete(object id)
         {
-            _entities.Entry(entity).State = EntityState.Modified;
+            T entityToDelete = DbSet.Find(id);
+            Delete(entityToDelete);
         }
 
-        public virtual int Save()
+        public virtual void Delete(T entityToDelete)
         {
-            try
+            if (Context.Entry(entityToDelete).State == EntityState.Detached)
             {
-               return _entities.SaveChanges();
+                DbSet.Attach(entityToDelete);
             }
-            catch (Exception ex)
+            DbSet.Remove(entityToDelete);
+        }
+
+        public virtual void Update(T entityToUpdate)
+        {
+            if (Context.Entry(entityToUpdate).State == EntityState.Detached)
             {
-                throw ex;
+                DbSet.Attach(entityToUpdate);
             }
+            Context.Entry(entityToUpdate).State = EntityState.Modified;
         }
     }
 }

@@ -14,16 +14,18 @@ namespace FPTB.Services.Implementation
 {
     public class HtmlPageService : IHtmlPageService
     {
-        IPageRepository _pagerepos;
+        private IUnitOfWork _unitOfWork;
+        private IGenericRepository<HtmlPage> _pagerepos;
 
-        public HtmlPageService(IPageRepository pagerepos)
+        public HtmlPageService(IUnitOfWork unitOfWork)
         {
-            _pagerepos = pagerepos;
+            _unitOfWork = unitOfWork;
+            _pagerepos = _unitOfWork.Repository<HtmlPage>();
         }
 
         public IEnumerable<HtmlPageDto> ListPages()
         {
-            var result = _pagerepos.GetAll();
+            var result = _pagerepos.Get();
             return Mapper.Map<IEnumerable<HtmlPage>, IEnumerable<HtmlPageDto>>(result);
         }
 
@@ -31,13 +33,13 @@ namespace FPTB.Services.Implementation
         {
             if (string.IsNullOrEmpty(identifier)) return null;
 
-            var page =_pagerepos.Get(x => x.PageIdentifier.ToLower().Trim() == identifier.ToLower().Trim());
+            var page =_pagerepos.FindFirst(x => x.PageIdentifier.ToLower().Trim() == identifier.ToLower().Trim());
             return (page == null)? null : Mapper.Map<HtmlPage, HtmlPageDto>(page);
         }
 
         public HtmlPageDto GetPage(int id)
         {
-            var page = _pagerepos.Get(x => x.PageId == id);
+            var page = _pagerepos.FindFirst(x => x.PageId == id);
             return (page == null) ? null : Mapper.Map<HtmlPage, HtmlPageDto>(page);
         }
 
@@ -46,11 +48,12 @@ namespace FPTB.Services.Implementation
             var newpage = Mapper.Map<HtmlPageDto, HtmlPage>(page);
 
             if(page.PageId > 0)
-                _pagerepos.Edit(newpage);
+                _pagerepos.Update(newpage);
             else
-                _pagerepos.Add(newpage);
+                _pagerepos.Insert(newpage);
 
-            return _pagerepos.Save();
+             _unitOfWork.CommitChanges();
+            return 1;
         }
 
         public string GetPageGroupFromUrl(string rawUrl)

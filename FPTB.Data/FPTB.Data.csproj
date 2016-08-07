@@ -66,11 +66,9 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Implementation\GenericRepository.cs" />
-    <Compile Include="Repositories\Implementation\PageRepository.cs" />
-    <Compile Include="Repositories\Implementation\UserRepository.cs" />
+    <Compile Include="Repositories\Implementation\GenericUnitOfWork.cs" />
     <Compile Include="Repositories\Infrastructure\IGenericRepository.cs" />
-    <Compile Include="Repositories\Infrastructure\IPageRepository.cs" />
-    <Compile Include="Repositories\Infrastructure\IUserRepository.cs" />
+    <Compile Include="Repositories\Infrastructure\IUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

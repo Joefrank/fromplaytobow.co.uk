@@ -70,12 +70,9 @@ namespace fromplaytobow.co.uk.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IUserRepository>().To<UserRepository>();
+            kernel.Bind<IUnitOfWork>().To<GenericUnitOfWork>().WithConstructorArgument("dbContext", new FPTBContext());
             kernel.Bind<IUserService>().To<UserService>();
-            kernel.Bind<IPageRepository>().To<PageRepository>();
             kernel.Bind<IHtmlPageService>().To<HtmlPageService>();
-            kernel.Bind<DbContext>().To<FPTBContext>();
-            kernel.Bind<DbConnection>().To<DbConnection>();
             kernel.Bind<IOAuthService>().To<OckAuthService>();
         }        
     }

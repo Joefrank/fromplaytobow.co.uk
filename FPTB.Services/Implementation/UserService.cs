@@ -14,19 +14,22 @@ namespace FPTB.Services.Implementation
 {
     public class UserService : IUserService
     {
-        private IUserRepository _userRepos;
+        private IUnitOfWork _unitOfWork;
+        private IGenericRepository<User> _userRepos;
 
-        public UserService(IUserRepository userRepos)
+        public UserService(IUnitOfWork unitOfWork)
         {
-            _userRepos = userRepos;
+            _unitOfWork = unitOfWork;
+            _userRepos = _unitOfWork.Repository<User>();
         }
 
         public UserDto GetUser(int userId)
         {
-            var user = _userRepos.FindBy(x => x.UserId == userId);
-            if (user.Any())
+            var user = _userRepos.FindFirst(x => x.UserId == userId);
+
+            if (user != null)
             {
-                return Mapper.Map<User, UserDto>(user.FirstOrDefault());
+                return Mapper.Map<User, UserDto>(user);
             }
             return null;
         }
@@ -36,15 +39,15 @@ namespace FPTB.Services.Implementation
             
             var encryptedpassword = Security.Encrypt(password);
 
-            var user = _userRepos.FindBy(x => 
+            var user = _userRepos.FindFirst(x => 
                 x.Email.ToLower().Trim().Equals(email.Trim().ToLower())
                 && 
                 x.Password == encryptedpassword
                 );
 
-            if (user.Any())
+            if (user != null)
             {
-                var tempuser = user.FirstOrDefault();
+                var tempuser = user;
 
                 return Mapper.Map<User, UserDto>(tempuser);
             }
@@ -55,8 +58,9 @@ namespace FPTB.Services.Implementation
         public UserDto CreateUser(UserDto user)
         {
             var newuser = Mapper.Map<UserDto, User>(user);
-            _userRepos.Add(newuser);
-            user.UserId = _userRepos.Save();
+            _userRepos.Insert(newuser);
+            _unitOfWork.CommitChanges();
+            user.UserId = newuser.UserId;
             return user;
         }
     }

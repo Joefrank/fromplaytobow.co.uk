@@ -53,6 +53,7 @@ namespace fromplaytobow.co.uk.Controllers
             ViewBag.EditMode = true;
             var page = CreateDefaultPage(_pageService.GetPage(pagename));
             var pageVm = Mapper.Map<HtmlPageDto, HtmlPageVM>(page);
+            pageVm.PageId = page.PageId;
             pageVm.PageIdentifier = pagename;
             pageVm.PageGroup = _pageService.GetPageGroupFromUrl(Request.RawUrl);
 

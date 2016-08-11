@@ -67,19 +67,19 @@ namespace bigbus.checkout.data.Repositories.Implementation
 
         public virtual void Delete(T entityToDelete)
         {
-            if (Context.Entry(entityToDelete).State == EntityState.Detached)
-            {
-                DbSet.Attach(entityToDelete);
-            }
+            //if (Context.Entry(entityToDelete).State == EntityState.Detached)
+            //{
+            //    DbSet.Attach(entityToDelete);
+            //}
             DbSet.Remove(entityToDelete);
         }
 
         public virtual void Update(T entityToUpdate)
         {
-            if (Context.Entry(entityToUpdate).State == EntityState.Detached)
-            {
-                DbSet.Attach(entityToUpdate);
-            }
+            //if (Context.Entry(entityToUpdate).State == EntityState.Detached)
+            //{
+            //    DbSet.Attach(entityToUpdate);
+            //}
             Context.Entry(entityToUpdate).State = EntityState.Modified;
         }
     }

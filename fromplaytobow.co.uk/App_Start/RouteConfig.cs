@@ -14,6 +14,17 @@ namespace fromplaytobow.co.uk
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+              name: "Contact",
+              url: "Contact",
+              defaults: new { controller = "Page", action = "GetPageContent", pagename = "contact" }
+          );
+            routes.MapRoute(
+             name: "ContactEdit",
+             url: "Contact/Edit",
+             defaults: new { controller = "Page", action = "EditPageContent", pagename = "contact" }
+         );
+
+            routes.MapRoute(
                name: "GradesEdit",
                url: "Grade/{idname}/Edit",
                defaults: new { controller = "Page", action = "EditPageContent", pagename = UrlParameter.Optional }
@@ -28,7 +39,7 @@ namespace fromplaytobow.co.uk
             routes.MapRoute(
               name: "News",
               url: "News/{pagename}",
-              defaults: new { controller = "Page", action = "GetNewsContent", pagename= UrlParameter.Optional }
+              defaults: new { controller = "Page", action = "GetPageContent", pagename= UrlParameter.Optional }
           );
 
             routes.MapRoute(
@@ -58,6 +69,24 @@ namespace fromplaytobow.co.uk
             routes.MapRoute(
               name: "MusicianshipEdit",
               url: "Musicianship/{pagename}/Edit",
+              defaults: new { controller = "Page", action = "EditPageContent", pagename = UrlParameter.Optional }
+             );
+
+            routes.MapRoute(
+              name: "InfoHomeEdit",
+              url: "Info/Edit",
+              defaults: new { controller = "Page", action = "EditPageContent", pagename = UrlParameter.Optional }
+             );
+
+            routes.MapRoute(
+               name: "Info",
+               url: "Info/{pagename}",
+               defaults: new { controller = "Page", action = "GetPageContent", pagename = UrlParameter.Optional }
+              );
+
+            routes.MapRoute(
+              name: "InfoEdit",
+              url: "Info/{pagename}/Edit",
               defaults: new { controller = "Page", action = "EditPageContent", pagename = UrlParameter.Optional }
              );
 

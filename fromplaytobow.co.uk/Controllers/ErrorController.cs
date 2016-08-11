@@ -14,5 +14,9 @@ namespace fromplaytobow.co.uk.Controllers
             return View();
         }
 
+        public ActionResult PageNotFound()
+        {
+            return View();
+        }
     }
 }

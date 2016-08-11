@@ -41,8 +41,15 @@ namespace fromplaytobow.co.uk.Controllers
         #endregion
 
         public ActionResult GetPageContent(string pagename)
-        {
+        {           
             ViewBag.EditMode = false;
+            var pageGroup = _pageService.GetPageGroupFromUrl(Request.RawUrl);
+
+            if (!string.IsNullOrEmpty(pageGroup) && string.IsNullOrEmpty(pagename))
+            {
+                pagename = string.Concat(pageGroup, "-Home");
+            }
+
             return View("GenericContent", CreateDefaultPage(_pageService.GetPage(pagename)));
         }
 
@@ -51,11 +58,24 @@ namespace fromplaytobow.co.uk.Controllers
         public ActionResult EditPageContent(string pagename)
         {
             ViewBag.EditMode = true;
+
+            var pageGroup = _pageService.GetPageGroupFromUrl(Request.RawUrl);
+
+            if (string.IsNullOrEmpty(pageGroup) && string.IsNullOrEmpty(pagename))
+            {
+                return Redirect("~/Error/PageNotFound");
+            }
+
+            if(!string.IsNullOrEmpty(pageGroup) && string.IsNullOrEmpty(pagename))
+            {
+                pagename = string.Concat(pageGroup, "-Home");
+            }
+
             var page = CreateDefaultPage(_pageService.GetPage(pagename));
             var pageVm = Mapper.Map<HtmlPageDto, HtmlPageVM>(page);
             pageVm.PageId = page.PageId;
             pageVm.PageIdentifier = pagename;
-            pageVm.PageGroup = _pageService.GetPageGroupFromUrl(Request.RawUrl);
+            pageVm.PageGroup = pageGroup;           
 
             return View("GenericContentEdit", pageVm);
         }

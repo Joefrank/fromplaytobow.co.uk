@@ -61,10 +61,23 @@ namespace FPTB.Services.Implementation
             if (string.IsNullOrEmpty(rawUrl))
                 return string.Empty;
 
-            var tempUrl = rawUrl.Trim();
-            return rawUrl.StartsWith("/") ? 
-                rawUrl.Substring(1, rawUrl.TrimStart('/').IndexOf("/")) : 
-                rawUrl.Substring(0, rawUrl.IndexOf("/"));
+            string[] tokens = rawUrl.Split('/');
+
+            //get the first non-null token
+            for (var i=0; i< tokens.Length; i++)
+            {
+                if(!string.IsNullOrEmpty(tokens[i]))
+                    return tokens[i];
+            }
+
+            return string.Empty;
+
+            //int count = rawUrl.Count(f => f == '/');
+
+            //var tempUrl = rawUrl.Trim();
+            //return rawUrl.StartsWith("/") ? 
+            //    rawUrl.Substring(1, rawUrl.TrimStart('/').IndexOf("/")) : 
+            //    rawUrl.Substring(0, rawUrl.IndexOf("/"));
         }
     }
 }

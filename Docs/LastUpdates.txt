@@ -1,0 +1,61 @@
+Grades to be removed from website
+
+
+Add menu for Musicianship  (with submenu as Lessons)
+Piano (with submenu as Lessons)
+
+Top Menu
+Home , About (as before) , Musicianship -> What it is, Fees, Piano -> Genral Info, 
+fees, Contact
+
+Second Menu: Information, Fees, Gallery, Classes (Time Table, Term Dates, Concert Schedule) 
+
+Put testimonies as second section after second menu   ******* rEQUEST FROM iNA, PUT IN BACKOFFICE *********
+
+
+From Play to bow logo to stand out (Bigger font)
+
+
+Move this section down
+* For Parents  * Exams/Grades  * Teaching/Methodology
+* Buying a Piano * Video Gallery * Recitals  
+
+
+Send form to Ina to provide content
+
+fromplaytobow.com  check if available.
+
+
+------------------------------  write ups  ---------------------------------
+About -> who we are/our philosophy
+Musicianship-> what it is, fees
+piano -> general info, fees, buying 
+fees
+exams
+grades
+classes
+parents
+recitals
+teaching
+
+Important Information 
+for parents
+Buying a piano
+exams
+grades
+methodology
+recital 
+
+testimonies
+gallery -> video, images
+
+------------------------------------------------------
+Logo Design website:
+
+http://www.freelogoservices.com/step4
+
+C:\Projects\fromplaytobow.co.uk\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll
+
+
+TEstimonials
+https://docs.google.com/document/d/1Uf66YgBO2MEDFXpuhUUeBW9ovIrUfmojjbvu8U9lE6M/edit?ts=57616160

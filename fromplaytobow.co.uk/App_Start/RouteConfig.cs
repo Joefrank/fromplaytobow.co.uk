@@ -11,18 +11,55 @@ namespace fromplaytobow.co.uk
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}"); 
+
+             routes.MapRoute(
+                name: "practiceadvice",
+                url: "practiceadvice",
+                defaults: new { controller = "Page", action = "GetPageContent", pagename = "practiceadvice" }
+             );
 
             routes.MapRoute(
-              name: "Contact",
-              url: "Contact",
-              defaults: new { controller = "Page", action = "GetPageContent", pagename = "contact" }
-          );
+                name: "practiceadviceedit",
+                url: "practiceadvice/Edit",
+                defaults: new { controller = "Page", action = "EditPageContent", pagename = "practiceadvice" }
+            );
+
             routes.MapRoute(
-             name: "ContactEdit",
-             url: "Contact/Edit",
-             defaults: new { controller = "Page", action = "EditPageContent", pagename = "contact" }
-         );
+                name: "Recitals",
+                url: "Recitals",
+                defaults: new { controller = "Page", action = "GetPageContent", pagename = "Recitals" }
+             );
+
+            routes.MapRoute(
+                name: "Recitalsedit",
+                url: "Recitals/Edit",
+                defaults: new { controller = "Page", action = "EditPageContent", pagename = "Recitals" }
+            );
+
+            routes.MapRoute(
+                 name: "termandc",
+                 url: "termsandconditions",
+                 defaults: new { controller = "Page", action = "GetPageContent", pagename = "termsandconditions" }
+             );
+
+            routes.MapRoute(
+                name: "termandcedit",
+                url: "termsandconditions/Edit",
+                defaults: new { controller = "Page", action = "EditPageContent", pagename = "termsandconditions" }
+            );
+
+            routes.MapRoute(
+                  name: "Contact",
+                  url: "Contact",
+                  defaults: new { controller = "Page", action = "GetPageContent", pagename = "contact" }
+              );
+
+            routes.MapRoute(
+                 name: "ContactEdit",
+                 url: "Contact/Edit",
+                 defaults: new { controller = "Page", action = "EditPageContent", pagename = "contact" }
+             );
 
             routes.MapRoute(
                name: "GradesEdit",

@@ -49,4 +49,3 @@ C:\Projects\websites\fromplaytobow.co.uk\FPTB.Data\obj\Debug\FPTB.Data.dll
 C:\Projects\websites\fromplaytobow.co.uk\FPTB.Data\obj\Debug\FPTB.Data.pdb
 C:\Projects\websites\fromplaytobow.co.uk\FPTB.Data\bin\Debug\log4net.dll
 C:\Projects\websites\fromplaytobow.co.uk\FPTB.Data\bin\Debug\log4net.xml
-C:\Projects\websites\fromplaytobow.co.uk\FPTB.Data\obj\Debug\FPTB.Data.csprojResolveAssemblyReference.cache

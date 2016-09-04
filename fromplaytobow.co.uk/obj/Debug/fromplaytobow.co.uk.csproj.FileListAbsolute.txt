@@ -165,4 +165,3 @@ C:\Projects\websites\fromplaytobow.co.uk\fromplaytobow.co.uk\bin\System.Net.Http
 C:\Projects\websites\fromplaytobow.co.uk\fromplaytobow.co.uk\bin\System.Web.Http.xml
 C:\Projects\websites\fromplaytobow.co.uk\fromplaytobow.co.uk\bin\System.Web.Http.WebHost.xml
 C:\Projects\websites\fromplaytobow.co.uk\fromplaytobow.co.uk\bin\log4net.xml
-C:\Projects\websites\fromplaytobow.co.uk\fromplaytobow.co.uk\bin\Authentication.pdb

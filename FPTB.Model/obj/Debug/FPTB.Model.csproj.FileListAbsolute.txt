@@ -11,4 +11,3 @@ C:\Projects\websites\fromplaytobow.co.uk\FPTB.Model\bin\Debug\FPTB.Model.dll
 C:\Projects\websites\fromplaytobow.co.uk\FPTB.Model\bin\Debug\FPTB.Model.pdb
 C:\Projects\websites\fromplaytobow.co.uk\FPTB.Model\obj\Debug\FPTB.Model.dll
 C:\Projects\websites\fromplaytobow.co.uk\FPTB.Model\obj\Debug\FPTB.Model.pdb
-C:\Projects\websites\fromplaytobow.co.uk\FPTB.Model\obj\Debug\FPTB.Model.csprojResolveAssemblyReference.cache

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq.Expressions;
 using FPTB.Data.Repositories.Infrastructure;
+using System.Data.Entity.Migrations;
 
 namespace bigbus.checkout.data.Repositories.Implementation
 {    
@@ -80,7 +81,8 @@ namespace bigbus.checkout.data.Repositories.Implementation
             //{
             //    DbSet.Attach(entityToUpdate);
             //}
-            Context.Entry(entityToUpdate).State = EntityState.Modified;
+            Context.Set<T>().AddOrUpdate(entityToUpdate);
+            //Context.Entry(entityToUpdate).State = EntityState.Modified;
         }
     }
 }

@@ -11,9 +11,47 @@ namespace fromplaytobow.co.uk
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}"); 
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            
 
              routes.MapRoute(
+                name: "cookies",
+                url: "cookies",
+                defaults: new { controller = "Page", action = "GetPageContent", pagename = "cookies" }
+             );
+
+            routes.MapRoute(
+                name: "cookiesedit",
+                url: "cookies/Edit",
+                defaults: new { controller = "Page", action = "EditPageContent", pagename = "cookies" }
+            );
+
+            routes.MapRoute(
+               name: "privacypolicy",
+               url: "privacypolicy",
+               defaults: new { controller = "Page", action = "GetPageContent", pagename = "privacypolicy" }
+            );
+
+            routes.MapRoute(
+                name: "privacypolicyedit",
+                url: "privacypolicy/Edit",
+                defaults: new { controller = "Page", action = "EditPageContent", pagename = "privacypolicy" }
+            );
+
+            routes.MapRoute(
+                name: "exams",
+                url: "exams",
+                defaults: new { controller = "Page", action = "GetPageContent", pagename = "exams" }
+             );
+
+            routes.MapRoute(
+                name: "examsedit",
+                url: "exams/Edit",
+                defaults: new { controller = "Page", action = "EditPageContent", pagename = "exams" }
+            );
+
+            routes.MapRoute(
                 name: "practiceadvice",
                 url: "practiceadvice",
                 defaults: new { controller = "Page", action = "GetPageContent", pagename = "practiceadvice" }

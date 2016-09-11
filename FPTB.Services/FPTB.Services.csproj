@@ -65,8 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementation\HtmlPageService.cs" />
+    <Compile Include="Implementation\MessageService.cs" />
     <Compile Include="Implementation\UserService.cs" />
     <Compile Include="Infrastructure\IHtmlPageService.cs" />
+    <Compile Include="Infrastructure\IMessageService.cs" />
     <Compile Include="Infrastructure\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -15,6 +15,7 @@ namespace FPTB.Data
             Configuration.ProxyCreationEnabled = true;
         }
 
+        public DbSet<ContactMessage> ContactMessages { get; set; }
         public DbSet<HtmlPage> HtmlPages { get; set; }
         public DbSet<HtmlBlock> HtmlBlocks { get; set; }
         public DbSet<User> Users { get; set; }

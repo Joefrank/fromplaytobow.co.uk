@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FPTB.Services.Infrastructure;
+using fromplaytobow.co.uk.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +10,13 @@ namespace fromplaytobow.co.uk.Controllers
 {
     public class ContactController : Controller
     {
-        //
-        // GET: /Contact/
+
+        private IMessageService _messageService;
+
+        public ContactController(IMessageService messageService)
+        {
+            _messageService = messageService;
+        }
 
         public ActionResult Index()
         {
@@ -18,7 +25,15 @@ namespace fromplaytobow.co.uk.Controllers
 
         public ActionResult SendMessage(string txtEmail, string txtMessage, string txtName = "")
         {
-            return null;
+
+            var result = _messageService.SendMessage(txtName, txtEmail, "[FromPlayToBow] - User Contact", txtMessage);
+            var model = new MessageVM
+            {
+                Name = txtName,
+                Email = txtEmail
+            };
+
+            return View("MessageSent", model);
         }
     }
 }

@@ -2,6 +2,7 @@
 using FPTB.Data.Model;
 using FPTB.Data.Repositories.Infrastructure;
 using System;
+using CM;
 
 namespace FPTB.Services.Implementation
 {
@@ -29,6 +30,8 @@ namespace FPTB.Services.Implementation
             _messagerepos.Insert(message);
             _unitOfWork.CommitChanges();
             //***do emailing here.
+
+            //var mail = new CM.Email();
 
             return true;
         }

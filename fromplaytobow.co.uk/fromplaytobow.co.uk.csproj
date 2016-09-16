@@ -180,6 +180,7 @@
     <Compile Include="Mappings\Profile\PagesMappingProfile.cs" />
     <Compile Include="Models\HtmlBlockVM.cs" />
     <Compile Include="Models\HtmlPageVM.cs" />
+    <Compile Include="Models\MessageVM.cs" />
     <Compile Include="Models\NewUserVM.cs" />
     <Compile Include="Models\UserLoginVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -595,10 +596,8 @@
     <Content Include="Content\img\prices\img3.jpg" />
     <Content Include="Content\img\prices\img4.jpg" />
     <Content Include="Content\img\slide\img1.jpg" />
-    <Content Include="Content\img\slide\img1.old.jpg" />
     <Content Include="Content\img\slide\img2.jpg" />
     <Content Include="Content\img\slide\img3.jpg" />
-    <Content Include="Content\img\slide\img3.old.jpg" />
     <Content Include="Content\img\slide\img4.jpg" />
     <Content Include="Content\img\slide\img5.jpg" />
     <Content Include="Content\img\slide\img6.jpg" />
@@ -809,6 +808,7 @@
     <Content Include="Views\Error\PageNotFound.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Testimonial\Index.cshtml" />
+    <Content Include="Views\Contact\MessageSent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

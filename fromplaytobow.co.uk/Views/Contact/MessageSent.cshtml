@@ -1,0 +1,56 @@
+﻿@model fromplaytobow.co.uk.Models.MessageVM
+@{
+    ViewBag.Title = "Thanks For Your Message";
+    var name = string.IsNullOrEmpty(Model.Name)? "Visitor" : Model.Name;
+}
+
+@section pagetitle{
+    Thanks For Your Message
+}
+
+@section pageshortintro{
+    Your message has been sent.
+}
+
+@section showcontactform{
+    @Html.Raw(@" style=""display:none"" ")
+}
+
+<section class="nicdark_section">
+
+    <div class="nicdark_container nicdark_clearfix">
+
+
+        <div class="nicdark_space50"></div>
+
+        <div class="grid grid_12 nicdark_relative">
+
+            <div class="nicdark_btn_iconbg nicdark_bg_yellow nicdark_absolute extrabig nicdark_shadow nicdark_radius">
+                <div>
+                    <i class="icon-leaf-1 nicdark_iconbg left big white"></i>
+                </div>
+            </div>
+
+            <div class="nicdark_activity nicdark_marginleft100">
+
+                <p>
+                    Dear @name,<br/>
+                    Thank you for your message. A member of our team will be in touch soon.<br/><br />
+
+                    Inah.
+
+                </p>
+
+                <div class="nicdark_space20"></div>
+               
+                <div class="nicdark_space20"></div>
+            </div>
+
+        </div>
+       
+
+    </div>
+
+
+
+</section>

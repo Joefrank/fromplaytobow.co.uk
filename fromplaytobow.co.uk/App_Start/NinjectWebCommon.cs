@@ -74,6 +74,7 @@ namespace fromplaytobow.co.uk.App_Start
             kernel.Bind<IUserService>().To<UserService>();
             kernel.Bind<IHtmlPageService>().To<HtmlPageService>();
             kernel.Bind<IOAuthService>().To<OckAuthService>();
+            kernel.Bind<IMessageService>().To<MessageService>();
         }        
     }
 }

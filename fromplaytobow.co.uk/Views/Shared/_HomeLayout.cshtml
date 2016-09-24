@@ -1,4 +1,22 @@
-﻿@Html.Partial("_HeadTags")
+﻿@using Authentication.Implementation;
+@using AE = Authentication.Models.Enums;
+
+@{
+    /* we don't edit the home page so this is not going to be used. */
+    var authService = new OckAuthService();
+    var clientUser = authService.GetClientUser();
+    var bUserIsAdmin = false;
+
+    if (clientUser != null)
+    {
+        var siteAdmin = (int)AE.Roles.SiteAdmin;
+        var compAdmin = (int)AE.Roles.CompanyAdmin;
+
+        bUserIsAdmin = clientUser.IsInRole(new List<string> { siteAdmin.ToString(), compAdmin.ToString() });
+    }
+}
+
+@Html.Partial("_HeadTags")
 
 <body id="start_nicdark_framework">
 

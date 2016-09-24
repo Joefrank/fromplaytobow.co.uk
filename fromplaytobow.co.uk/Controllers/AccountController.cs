@@ -100,6 +100,12 @@ namespace fromplaytobow.co.uk.Controllers
             return View("Login", page);
         }
 
+        public ActionResult Loggout()
+        {
+            _authService.LogUserOut();
+            return Redirect("~/");
+        }
+
         public ActionResult CreateDefaultAdmin(string id)
         {
             if (!Passcode.Equals(id))

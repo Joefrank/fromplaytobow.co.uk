@@ -9,6 +9,8 @@ using AutoMapper;
 using FPTB.Services.Infrastructure;
 using FPTB.Model;
 using fromplaytobow.co.uk.Models;
+using Authentication.Infrastructure;
+using Authentication.Implementation;
 
 namespace fromplaytobow.co.uk.Controllers
 {
@@ -20,6 +22,7 @@ namespace fromplaytobow.co.uk.Controllers
         {
             _pageService = pageService;
         }
+
 
         /// <summary>
         /// Provides a list of all pages with their sections

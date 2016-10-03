@@ -25,8 +25,13 @@ namespace fromplaytobow.co.uk.Controllers
 
         public ActionResult SendMessage(string txtEmail, string txtMessage, string txtName = "")
         {
+            if(string.IsNullOrEmpty(txtMessage) || string.IsNullOrEmpty(txtEmail))
+            {
+                return View("MessageFailed");
+            }
 
             var result = _messageService.SendMessage(txtName, txtEmail, "[FromPlayToBow] - User Contact", txtMessage);
+
             var model = new MessageVM
             {
                 Name = txtName,

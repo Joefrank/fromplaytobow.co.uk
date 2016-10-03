@@ -832,6 +832,7 @@
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Testimonial\Index.cshtml" />
     <Content Include="Views\Contact\MessageSent.cshtml" />
+    <Content Include="Views\Contact\MessageFailed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

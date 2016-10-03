@@ -3,6 +3,7 @@ using FPTB.Data.Model;
 using FPTB.Data.Repositories.Infrastructure;
 using System;
 using CM;
+using System.Configuration;
 
 namespace FPTB.Services.Implementation
 {
@@ -29,9 +30,28 @@ namespace FPTB.Services.Implementation
 
             _messagerepos.Insert(message);
             _unitOfWork.CommitChanges();
-            //***do emailing here.
 
-            //var mail = new CM.Email();
+            SendEmail(email, username, subject, messagebody);
+
+            return true;
+        }
+
+        public bool SendEmail(string toAddress, string toName, string subject, string body)
+        {
+            var serverName = ConfigurationManager.AppSettings["OutGoingSMTPServer"];
+            var userName = ConfigurationManager.AppSettings["EmailUserName"];
+            var pass = ConfigurationManager.AppSettings["EmailPassword"];
+            var adminEmail = ConfigurationManager.AppSettings["InfoEmail"];
+
+            var mail = new Email(serverName, userName, pass);
+
+            var result = mail.send(adminEmail, "Admin - [FromPlayToBow]", toAddress, toName, subject, body);
+
+            if(!string.IsNullOrEmpty(result))
+            {
+                throw new Exception(result);
+                return false;
+            }
 
             return true;
         }

@@ -232,3 +232,6 @@ FPTB.Services/obj/Debug/*
 FPTB.Services/obj/Debug/*.*
 /FPTB.Services/obj/Debug/*.*
 fromplaytobow.co.uk/FPTB.Services/obj/Debug/*.*
+
+**/[Bb]in/*
+!**/[Bb]in/*.refresh

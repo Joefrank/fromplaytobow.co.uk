@@ -1,3 +1,5 @@
+﻿using Ninject.Web.Common.WebHost;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(fromplaytobow.co.uk.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(fromplaytobow.co.uk.App_Start.NinjectWebCommon), "Stop")]
 
@@ -20,20 +22,20 @@ namespace fromplaytobow.co.uk.App_Start
     using Authentication.Infrastructure;
     using Authentication.Implementation;
 
-    public static class NinjectWebCommon 
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -41,7 +43,7 @@ namespace fromplaytobow.co.uk.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -75,6 +77,6 @@ namespace fromplaytobow.co.uk.App_Start
             kernel.Bind<IHtmlPageService>().To<HtmlPageService>();
             kernel.Bind<IOAuthService>().To<OckAuthService>();
             kernel.Bind<IMessageService>().To<MessageService>();
-        }        
+        }
     }
 }

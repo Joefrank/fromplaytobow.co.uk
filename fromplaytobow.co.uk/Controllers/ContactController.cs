@@ -1,9 +1,5 @@
 ﻿using FPTB.Services.Infrastructure;
 using fromplaytobow.co.uk.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace fromplaytobow.co.uk.Controllers
@@ -11,7 +7,7 @@ namespace fromplaytobow.co.uk.Controllers
     public class ContactController : Controller
     {
 
-        private IMessageService _messageService;
+        private readonly IMessageService _messageService;
 
         public ContactController(IMessageService messageService)
         {

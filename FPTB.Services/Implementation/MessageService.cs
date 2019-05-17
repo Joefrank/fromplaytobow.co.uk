@@ -50,7 +50,6 @@ namespace FPTB.Services.Implementation
             if(!string.IsNullOrEmpty(result))
             {
                 throw new Exception(result);
-                return false;
             }
 
             return true;

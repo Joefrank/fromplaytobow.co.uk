@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using AutoMapper;
+using fromplaytobow.co.uk.Models;
 using FPTB.Data.Model;
 using FPTB.Model;
-using fromplaytobow.co.uk.Models;
+using AutoMapper;
 
-namespace FPTB.Mappings.Profile
+namespace fromplaytobow.co.uk.Mappings.Profile
 {
     public class DeliveryRequestMappingProfile : AutoMapper.Profile
     {

@@ -91,3 +91,13 @@ C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\obj\Debug\FPTB.S
 C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\obj\Debug\FPTB.Services.csproj.CopyComplete
 C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\obj\Debug\FPTB.Services.dll
 C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\obj\Debug\FPTB.Services.pdb
+C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\bin\Debug\Newtonsoft.Json.dll
+C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\bin\Debug\SocketLabs.dll
+C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\bin\Debug\System.Net.Http.dll
+C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\bin\Debug\System.Security.Cryptography.Encoding.dll
+C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\bin\Debug\System.Security.Cryptography.Primitives.dll
+C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\bin\Debug\Newtonsoft.Json.xml
+C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\bin\Debug\SocketLabs.pdb
+C:\projects\Websites\Personal\fromplaytobow.co.uk\FPTB.Services\bin\Debug\SocketLabs.xml

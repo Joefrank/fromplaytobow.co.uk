@@ -1,4 +1,5 @@
-﻿using FPTB.Services.Infrastructure;
+﻿using System.Configuration;
+using FPTB.Services.Infrastructure;
 using fromplaytobow.co.uk.Models;
 using System.Web.Mvc;
 
@@ -7,9 +8,9 @@ namespace fromplaytobow.co.uk.Controllers
     public class ContactController : Controller
     {
 
-        private readonly IMessageService _messageService;
+        private readonly IEmailService _messageService;
 
-        public ContactController(IMessageService messageService)
+        public ContactController(IEmailService messageService)
         {
             _messageService = messageService;
         }
@@ -25,8 +26,8 @@ namespace fromplaytobow.co.uk.Controllers
             {
                 return View("MessageFailed");
             }
-
-            var result = _messageService.SendMessage(txtName, txtEmail, "[FromPlayToBow] - User Contact", txtMessage);
+            var adminEmail = ConfigurationManager.AppSettings["InfoEmail"];
+            var result = _messageService.SendEmail(txtEmail, txtName, "FTB Admin", adminEmail, "[FromPlayToBow] - User Contact", txtMessage);
 
             var model = new MessageVM
             {

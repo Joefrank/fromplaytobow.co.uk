@@ -1,4 +1,5 @@
-﻿using Ninject.Web.Common.WebHost;
+﻿using System.Configuration;
+using Ninject.Web.Common.WebHost;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(fromplaytobow.co.uk.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(fromplaytobow.co.uk.App_Start.NinjectWebCommon), "Stop")]
@@ -72,11 +73,17 @@ namespace fromplaytobow.co.uk.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            var serverId = CM.Security.Decrypt(ConfigurationManager.AppSettings["ServerId"]);
+            var apiKey = CM.Security.Decrypt(ConfigurationManager.AppSettings["ApiKey"]);
+
             kernel.Bind<IUnitOfWork>().To<GenericUnitOfWork>().WithConstructorArgument("dbContext", new FPTBContext());
             kernel.Bind<IUserService>().To<UserService>();
             kernel.Bind<IHtmlPageService>().To<HtmlPageService>();
             kernel.Bind<IOAuthService>().To<OckAuthService>();
             kernel.Bind<IMessageService>().To<MessageService>();
+            kernel.Bind<IEmailService>().To<SocketLabEmailService>()
+                .WithConstructorArgument("serverId", Convert.ToInt32(serverId))
+                .WithConstructorArgument("apiKey", apiKey); 
         }
     }
 }

@@ -1,21 +1,29 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
-using Medioptimise.Core.Model;
-using Medioptimise.Services.Infrastructure;
+using FPTB.Model;
+using FPTB.Services.Infrastructure;
 using SocketLabs.InjectionApi;
 using SocketLabs.InjectionApi.Message;
 using Attachment = System.Net.Mail.Attachment;
 
-namespace medioptimize.services.Implementation
+namespace FPTB.Services.Implementation
 {
     public class SocketLabEmailService : IEmailService
     {
-        private readonly ILogService _logService;
         private readonly SocketLabsClient _emailClient;
 
-        public SocketLabEmailService(int serverId, string apiKey, ILogService logService)
+        //public SocketLabEmailService()
+        //{
+        //    var serverId = CM.Security.Decrypt(ConfigurationManager.AppSettings["ServerId"]);
+        //    var apiKey = CM.Security.Decrypt(ConfigurationManager.AppSettings["ApiKey"]);
+
+        //    _emailClient = new SocketLabsClient(Convert.ToInt32(serverId), apiKey);
+        //}
+
+        public SocketLabEmailService(int serverId, string apiKey)
         {
-            _logService = logService;
             _emailClient = new SocketLabsClient(serverId, apiKey);
         }
 
@@ -44,10 +52,10 @@ namespace medioptimize.services.Implementation
 
             var response = _emailClient.Send(emailMessage);
 
-            if (!response.Result.Equals("Success"))
-            {
-                _logService.LogItem(response.ResponseMessage, "BS");
-            }
+            //if (!response.Result.Equals("Success"))
+            //{
+            //    _logService.LogItem(response.ResponseMessage, "BS");
+            //}
 
             return new Result
             {
@@ -72,10 +80,10 @@ namespace medioptimize.services.Implementation
 
             var response = _emailClient.Send(emailMessage);
 
-            if (!response.Result.Equals("Success"))
-            {
-                _logService.LogItem(response.ResponseMessage, "BS");
-            }
+            //if (!response.Result.Equals("Success"))
+            //{
+            //    _logService.LogItem(response.ResponseMessage, "BS");
+            //}
 
             return new Result
             {

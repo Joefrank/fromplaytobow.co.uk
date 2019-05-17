@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Authentication.Models;
 using Authentication.Models.Enums;
@@ -9,8 +6,6 @@ using AutoMapper;
 using FPTB.Services.Infrastructure;
 using FPTB.Model;
 using fromplaytobow.co.uk.Models;
-using Authentication.Infrastructure;
-using Authentication.Implementation;
 
 namespace fromplaytobow.co.uk.Controllers
 {

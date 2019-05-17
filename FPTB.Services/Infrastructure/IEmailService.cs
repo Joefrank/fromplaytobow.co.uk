@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Net.Mail;
+using FPTB.Model;
 
 namespace FPTB.Services.Infrastructure
 {
